@@ -49,7 +49,7 @@ jobs:
           access_key: ${{ secrets.MINIO_ACCESS_KEY }}
           secret_key: ${{ secrets.MINIO_SECRET_KEY }}
           bucket: 'mybucket'
-          source_dir 'public'
+          source_dir: 'public'
           target_dir: '/'
           extra_args: '--remove'
 ```

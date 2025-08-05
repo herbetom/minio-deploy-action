@@ -22,6 +22,10 @@ inputs:
     description: 'Set a target directory for deployment (with a leading slash).'
     required: false
     default: '/'
+  extra_args:
+    description: 'Add additional Args to the mirror command like --remove'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,9 +33,11 @@ runs:
     MINIO_ENDPOINT: ${{ inputs.endpoint }}
     MINIO_ACCESS_KEY: ${{ inputs.access_key }}
     MINIO_SECRET_KEY: ${{ inputs.secret_key }}
+    MINIO_EXTRA_ARGS: ${{ inputs.extra_args }}
   args:
     - ${{ inputs.source_dir }}
     - '${{ inputs.bucket }}${{ inputs.target_dir }}'
+    - ${{ inputs.extra_args }}
 branding:
   icon: 'upload-cloud'
   color: 'black'

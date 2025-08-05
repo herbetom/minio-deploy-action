@@ -20,6 +20,7 @@ Put the following step in your workflow:
     # Optional inputs with their defaults:
     source_dir: 'public'
     target_dir: '/'
+    extra_args: ''
 ```
 
 Workflow example:
@@ -50,6 +51,7 @@ jobs:
           bucket: 'mybucket'
           source_dir 'public'
           target_dir: '/'
+          extra_args: '--remove'
 ```
 
 ## License
